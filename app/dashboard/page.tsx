@@ -1,5 +1,5 @@
-import { signOut } from "../login/utils/auth";
-import { requireUser } from "../login/utils/hooks";
+import { signOut } from "../utils/auth";
+import { requireUser } from "../utils/hooks";
 
 export default async function DashboardRoute() {
   const session = await requireUser();

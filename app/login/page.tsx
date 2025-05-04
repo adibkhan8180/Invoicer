@@ -9,7 +9,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { redirect } from "next/navigation";
-import { auth, signIn } from "./utils/auth";
+import { auth, signIn } from "../utils/auth";
 import { SubmitButton } from "../components/SubmitButtons";
 
 export default async function Login() {
