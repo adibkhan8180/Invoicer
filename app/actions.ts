@@ -68,7 +68,7 @@ export async function createInvoice(prevState: any, formData: FormData) {
   });
 
   const sender = {
-    email: "hello@demomailtrap.com",
+    email: "hello@demomailtrap.co",
     name: "Adib Khan",
   };
 
@@ -89,7 +89,7 @@ export async function createInvoice(prevState: any, formData: FormData) {
       invoiceLink:
         process.env.NODE_ENV !== "production"
           ? `http://localhost:3000/api/invoice/${data.id}`
-          : `https://invoice-marshal.vercel.app/api/invoice/${data.id}`,
+          : `https://invoice-marshal.vercel.app/api/invoice/${data.id}`, // Todo: replace with your production url
     },
   });
 
