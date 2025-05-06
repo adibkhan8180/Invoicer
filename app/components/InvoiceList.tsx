@@ -9,30 +9,30 @@ import {
 import { InvoiceActions } from "./InvoiceActions";
 import prisma from "../utils/db";
 import { requireUser } from "../utils/hooks";
-// import { formatCurrency } from "../utils/formatCurrency";
-// import { Badge } from "@/components/ui/badge";
+import { formatCurrency } from "../utils/formatCurrency";
+import { Badge } from "@/components/ui/badge";
 // import { EmptyState } from "./EmptyState";
 
 async function getData(userId: string) {
-  // const data = await prisma.invoice.findMany({
-  //   where: {
-  //     userId: userId,
-  //   },
-  //   select: {
-  //     id: true,
-  //     clientName: true,
-  //     total: true,
-  //     createdAt: true,
-  //     status: true,
-  //     invoiceNumber: true,
-  //     currency: true,
-  //   },
-  //   orderBy: {
-  //     createdAt: "desc",
-  //   },
-  // });
+  const data = await prisma.invoice.findMany({
+    where: {
+      userId: userId,
+    },
+    select: {
+      id: true,
+      clientName: true,
+      total: true,
+      createdAt: true,
+      status: true,
+      invoiceNumber: true,
+      currency: true,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 
-  // return data;
+  return data;
 }
 export async function InvoiceList() {
   const session = await requireUser();
@@ -64,13 +64,13 @@ export async function InvoiceList() {
                 <TableCell>#{invoice.invoiceNumber}</TableCell>
                 <TableCell>{invoice.clientName}</TableCell>
                 <TableCell>
-                  {/* {formatCurrency({
+                  {formatCurrency({
                     amount: invoice.total,
                     currency: invoice.currency as any,
-                  })} */}
+                  })}
                 </TableCell>
                 <TableCell>
-                  {/* <Badge>{invoice.status}</Badge> */}
+                  <Badge>{invoice.status}</Badge>
                 </TableCell>
                 <TableCell>
                   {new Intl.DateTimeFormat("en-US", {
