@@ -16,7 +16,7 @@ import {
   Trash,
 } from "lucide-react";
 import Link from "next/link";
-// import { toast } from "sonner";
+import { toast } from "sonner";
 
 interface iAppProps {
   id: string;
@@ -24,19 +24,19 @@ interface iAppProps {
 }
 export function InvoiceActions({ id, status }: iAppProps) {
   const handleSendReminder = () => {
-    // toast.promise(
-    //   fetch(`/api/email/${id}`, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   }),
-    //   {
-    //     loading: "Sending reminder email...",
-    //     success: "Reminder email sent successfully",
-    //     error: "Failed to send reminder email",
-    //   }
-    // );
+    toast.promise(
+      fetch(`/api/email/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }),
+      {
+        loading: "Sending reminder email...",
+        success: "Reminder email sent successfully",
+        error: "Failed to send reminder email",
+      }
+    );
   };
 
   return (
