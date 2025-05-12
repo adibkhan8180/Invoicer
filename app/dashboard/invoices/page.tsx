@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-// import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 import { PlusIcon } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -27,9 +27,9 @@ export default function InvoicesRoute() {
         </div>
       </CardHeader>
       <CardContent>
-        {/* <Suspense fallback={<Skeleton className="w-full h-[500px]" />}> */}
+        <Suspense fallback={<Skeleton className="w-full h-[500px]" />}>
           <InvoiceList />
-        {/* </Suspense> */}
+        </Suspense>
       </CardContent>
     </Card>
   );
