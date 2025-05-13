@@ -1,5 +1,5 @@
 // lib/prismaDynamic.ts
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@/lib/generated/prisma";
 
 type TenantConfig = {
   databaseUrl: string;
